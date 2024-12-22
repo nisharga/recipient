@@ -4,7 +4,7 @@ import MainStack from './navigation';
 
 export default function RootLayout() {
     return (
-        <SafeAreaView className='flex-1 items-center justify-center'>
+        <SafeAreaView style={{ flex: 1 }}>
             <MainStack />
         </SafeAreaView>
     );
