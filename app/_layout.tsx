@@ -14,6 +14,9 @@ import {
     Outfit_900Black
 } from '@expo-google-fonts/outfit';
 import { Allan_400Regular, Allan_700Bold } from '@expo-google-fonts/allan';
+import Toast from 'react-native-toast-message';
+import store from './redux/store';
+import { Provider } from 'react-redux'; // Import Provider
 
 export default function RootLayout() {
     let [fontsLoaded] = useFonts({
@@ -34,7 +37,10 @@ export default function RootLayout() {
     }
     return (
         <SafeAreaView style={{ flex: 1 }}>
-            <MainStack />
+            <Provider store={store}>
+                <MainStack />
+            </Provider>
+            <Toast />
         </SafeAreaView>
     );
 }
