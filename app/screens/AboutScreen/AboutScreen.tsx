@@ -1,10 +1,12 @@
+import MenuButton from '@/app/components/MenuButton';
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const HelloWorldScreen = () => {
+const AboutScreen = () => {
     return (
         <View style={styles.container}>
-            <Text>Hello World</Text>
+            <MenuButton />
+            <Text>About Screen</Text>
         </View>
     );
 };
@@ -17,4 +19,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default HelloWorldScreen;
+export default AboutScreen;

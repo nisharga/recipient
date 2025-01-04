@@ -1,29 +1,52 @@
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import OnBoarding from '@/app/screens/OnBoarding/OnBoarding';
+import ProfileScreen from '@/app/screens/ProfileScreen/ProfileScreen';
 import SignInScreen from '@/app/screens/SignInScreen/SignInScreen';
 import SignUpScreen from '@/app/screens/SignUpScreen/SignUpScreen';
 import VerificationScreen from '@/app/screens/VerificationScreen/VerificationScreen';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import CustomDrawer from '@/app/components/CustomDrawer';
+import SettingsScreen from '@/app/screens/SettingsScreen/SettingsScreen';
+import AboutScreen from '@/app/screens/AboutScreen/AboutScreen';
 
-export type NoAuthStackParamList = {
-    OnBoarding: undefined;
-    SignIn: undefined;
-    SignUp: undefined;
-    Verification: undefined;
+// Auth flow screens (without drawer)
+const AuthStack = createNativeStackNavigator();
+const AuthStackNavigator = () => {
+    return (
+        <AuthStack.Navigator
+            screenOptions={{ headerShown: false, gestureEnabled: false }}
+        >
+            <AuthStack.Screen name='OnBoarding' component={OnBoarding} />
+            <AuthStack.Screen name='SignIn' component={SignInScreen} />
+            <AuthStack.Screen name='SignUp' component={SignUpScreen} />
+            <AuthStack.Screen
+                name='Verification'
+                component={VerificationScreen}
+            />
+        </AuthStack.Navigator>
+    );
 };
 
-const Stack = createNativeStackNavigator<NoAuthStackParamList>();
-
+// Drawer navigation
+const Drawer = createDrawerNavigator();
 const NoAuthStack = () => {
     return (
-        <Stack.Navigator
-            screenOptions={{ headerShown: false, gestureEnabled: false }}
-            initialRouteName='OnBoarding'
+        <Drawer.Navigator
+            drawerContent={(props) => <CustomDrawer {...props} />}
+            screenOptions={{
+                headerShown: false,
+                drawerPosition: 'left',
+                drawerStyle: {
+                    width: 280 // Customize drawer width
+                }
+            }}
+            initialRouteName='Auth'
         >
-            <Stack.Screen name='OnBoarding' component={OnBoarding} />
-            <Stack.Screen name='SignIn' component={SignInScreen} />
-            <Stack.Screen name='SignUp' component={SignUpScreen} />
-            <Stack.Screen name='Verification' component={VerificationScreen} />
-        </Stack.Navigator>
+            <Drawer.Screen name='Auth' component={AuthStackNavigator} />
+            <Drawer.Screen name='Profile' component={ProfileScreen} />
+            <Drawer.Screen name='About' component={AboutScreen} />
+            <Drawer.Screen name='Settings' component={SettingsScreen} />
+        </Drawer.Navigator>
     );
 };
 
