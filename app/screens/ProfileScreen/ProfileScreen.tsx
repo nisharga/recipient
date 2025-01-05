@@ -1,9 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import MenuButton from '@/app/components/MenuButton';
 
 const ProfileScreen = () => {
     return (
         <View style={styles.container}>
+            <MenuButton />
             <Text>Profile Screen</Text>
         </View>
     );

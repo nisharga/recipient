@@ -1,12 +1,13 @@
 import { useNavigation } from 'expo-router';
 import { View, Text, TouchableOpacity } from 'react-native';
 
-type NavigationProps = {
-    navigate: (route: 'SignUp') => void;
-};
+// type NavigationProps = {
+//     navigate: (route: 'SignUp') => void;
+//     navigate: (route: 'Profile') => void;
+// };
 
 const SignInScreen = () => {
-    const navigation = useNavigation<NavigationProps>();
+    const navigation = useNavigation<any>();
 
     return (
         <View
@@ -17,7 +18,7 @@ const SignInScreen = () => {
                 alignItems: 'center'
             }}
         >
-            <Text>Sign In Screen</Text>
+            <Text className='mb-4'>Sign In Screen</Text>
             <TouchableOpacity
                 onPress={() => navigation.navigate('SignUp')}
                 style={{
@@ -30,6 +31,21 @@ const SignInScreen = () => {
             >
                 <Text style={{ color: 'white', textAlign: 'center' }}>
                     SignUp page
+                </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+                onPress={() => navigation.navigate('Profile')}
+                style={{
+                    paddingVertical: 16,
+                    paddingHorizontal: 32,
+                    backgroundColor: '#D93030',
+                    borderRadius: 48,
+                    marginBottom: 8
+                }}
+            >
+                <Text style={{ color: 'white', textAlign: 'center' }}>
+                    Profile
                 </Text>
             </TouchableOpacity>
         </View>
