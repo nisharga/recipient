@@ -45,7 +45,7 @@ const SignInScreen = () => {
                 }}
             >
                 <Text style={{ color: 'white', textAlign: 'center' }}>
-                    Profile
+                    Drawer Navigation
                 </Text>
             </TouchableOpacity>
         </View>
