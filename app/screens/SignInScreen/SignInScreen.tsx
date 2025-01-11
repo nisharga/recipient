@@ -28,7 +28,6 @@ const SignInScreen = () => {
                     SignUp page
                 </Text>
             </TouchableOpacity>
-
             <TouchableOpacity
                 onPress={() => navigation.navigate('Profile')}
                 style={{
@@ -40,7 +39,21 @@ const SignInScreen = () => {
                 }}
             >
                 <Text style={{ color: 'white', textAlign: 'center' }}>
-                    Go to Profile
+                    Drawer And Tab
+                </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+                onPress={() => navigation.navigate('Footer')}
+                style={{
+                    paddingVertical: 16,
+                    paddingHorizontal: 32,
+                    backgroundColor: '#D93030',
+                    borderRadius: 48,
+                    marginBottom: 8
+                }}
+            >
+                <Text style={{ color: 'white', textAlign: 'center' }}>
+                    Footer Tab
                 </Text>
             </TouchableOpacity>
         </View>
