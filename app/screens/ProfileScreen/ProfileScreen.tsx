@@ -1,21 +1,18 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import MenuButton from '@/app/components/MenuButton';
+import { View, StyleSheet } from 'react-native';
+import { TopTabNavigator } from '@/app/navigation/TopTabNavigator';
 
 const ProfileScreen = () => {
     return (
         <View style={styles.container}>
-            <MenuButton />
-            <Text>Profile Screen</Text>
+            <TopTabNavigator />
         </View>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
+        flex: 1
     }
 });
 
