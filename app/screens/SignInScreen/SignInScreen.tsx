@@ -48,6 +48,21 @@ const SignInScreen = () => {
                     Drawer Navigation
                 </Text>
             </TouchableOpacity>
+
+            <TouchableOpacity
+                onPress={() => navigation.navigate('Footer')}
+                style={{
+                    paddingVertical: 16,
+                    paddingHorizontal: 32,
+                    backgroundColor: '#D93030',
+                    borderRadius: 48,
+                    marginBottom: 8
+                }}
+            >
+                <Text style={{ color: 'white', textAlign: 'center' }}>
+                    Bottom Tab Navigation
+                </Text>
+            </TouchableOpacity>
         </View>
     );
 };
